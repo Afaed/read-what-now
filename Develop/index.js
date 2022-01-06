@@ -78,7 +78,7 @@ function writeToFile(questions, data) {
 
 // TODO: Create a function to initialize app
 function generatePage() {
-  module.exports = questions => {
+  module.exports = generatePage => {
     console.log(questions);
     
     return `
