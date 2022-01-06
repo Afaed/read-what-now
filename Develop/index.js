@@ -2,7 +2,8 @@
 var inquirer = require('inquirer');
 const  fs = require('fs')
 const inquirer = require('os')
-const generatePage = require('./utils/generateMarkdown')
+const generatePage = require('./utils/generateMarkdown');
+const { resolve } = require('path');
 const questions = () => {
   return inquirer.prompt([
     {
@@ -80,10 +81,34 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
+const writeFile = fileContent => {
+  return new Promise ((resolve, reject) => {if (err){
+    reject(err)
+  }
+});
 function writeToFile(questions, data) {
-   
-};
+   const writeFile = fileContent => {
+     fs.writeFile(`./dist/index.html`, pageHTML, err => {
+     if (err) {
+       reject(err);
+       return;
+     }
+     resolve({ok: true,
+      message:'File created!',})
+     console.log('Congratulations! Your Readne has been realized! Leave.')
 
+     fs.copyFile('./src/style.css', './dist/style.css', err => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('Style sheet copied successfully!');
+
+   });
+});
+}
+}
+}
 // TODO: Create a function to initialize app
 function generatePage() {
   module.exports = generatePage => {
@@ -107,15 +132,14 @@ function generatePage() {
   <header>
   <div class = "container flex-row justify-space-between align-center py-3
     <h1 class = "page-title text-primary bg-dark py-2 px-3">${writeToFile}</h1>
-    <nav class =" flex-row">
-    <a class = 
+    <nav class ="flex-row">
+    <a class = "flex-row cbbg-light py-2 px-3">
     <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
   </body>
   </html>
   `;
 };
 }
-
 
 // Function call to initialize app
 init();
