@@ -4,15 +4,20 @@ const  fs = require('fs')
 const inquirer = require('os')
 const generatePage = require('./utils/generateMarkdown')
 const questions = () => {
-  return inquirer.prompt({
+  return inquirer.prompt([
+    {
     type: "input",
     name: "Title",
     message: "name?",
     validate: nameInput => {
-      name: "Title",
-      value; "text",
-    }
-      }),
+      if (nameInput) {
+        return true; 
+      } else {
+          console.log('Please enter your project title')
+          return false;
+        }
+      }
+    },
     {
         type: "input",
         name: "description",
@@ -69,7 +74,10 @@ const questions = () => {
     }
   },
   );
-});
+})
+]
+)
+};
 
 // TODO: Create a function to write README file
 function writeToFile(questions, data) {
