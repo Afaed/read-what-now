@@ -1,32 +1,31 @@
 // TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const  fs = require('fs')
-const os = require('os')
-const web = require("HTMLGEN")
-const questions = [
-  inquirer
-      .prompt(), {
+const inquirer = require('os')
+const generatePage = require('./utils/generateMarkdown')
+const questions = () => {
+  return inquirer.prompt({
     type: "input",
     name: "Title",
     message: "name?",
-    choices: {
+    validate: nameInput => {
       name: "Title",
-      value: "Text",
+      value; "text",
     }
-      },
+      }),
     {
-        type: "list",
-        name: "comm method",
-        list: "What is your preffered means of comm?",
+        type: "input",
+        name: "description",
+        message: "What is the description of the project?",
         choices: [
             {
-                name: "phone number",
-                value: "Phone"
+                name: "description",
+                value: "input"
             }
         ] //after use a .then to convert it to a json and make a new file
     },
     {
-      type: "text",
+      type: "input",
       name: "Github Username",
       list: "Enter your Github Username",
       choices: [
@@ -37,28 +36,27 @@ const questions = [
       ] //after use a .then to convert it to a json and make a new file
   },
   {
-    type: "list",
-    name: "comm method",
-    list: "What is your Engineer?",
+    type: "input",
+    name: "Installation instreuctions",
+    list: "",
     choices: [
         {
-            name: "Engineer",
-            value: "Engineer"
+            name: "description",
+            value: "input"
         }
     ] //after use a .then to convert it to a json and make a new file
 },
 {
-  type: "list",
-  name: "comm method",
-  list: "What is your preffered means of comm?",
+  type: "input",
+  name: "description",
+  list: "What is the description of the project?",
   choices: [
       {
-          name: "phone number",
-          value: "Phone"
+          name: "description",
+          value: "input"
       }
   ] //after use a .then to convert it to a json and make a new file
 }
-]
 .then((answers) =>{
   print (answers)
   .catch((error) => {
@@ -74,12 +72,12 @@ const questions = [
 });
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  
+function writeToFile(questions, data) {
+   
 };
 
 // TODO: Create a function to initialize app
-function init() {
+function generatePage() {
   module.exports = questions => {
     console.log(questions);
     
@@ -100,7 +98,7 @@ function init() {
   <body>
   <header>
   <div class = "container flex-row justify-space-between align-center py-3
-    <h1 class = "page-title text-primary bg-dark py-2 px-3">${templateData.name}</h1>
+    <h1 class = "page-title text-primary bg-dark py-2 px-3">${writeToFile}</h1>
     <nav class =" flex-row">
     <a class = 
     <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
