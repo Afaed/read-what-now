@@ -1,11 +1,10 @@
 // TODO: Include packages needed for this application
 var inquirer = require('inquirer');
 const  fs = require('fs')
-const inquirer = require('os')
+const os= require('os')
 const generatePage = require('./utils/generateMarkdown');
 const { resolve } = require('path');
-const questions = () => {
-  return inquirer.prompt([
+var questions = [
     {
     type: "input",
     name: "Title",
@@ -23,48 +22,33 @@ const questions = () => {
         type: "input",
         name: "description",
         message: "What is the description of the project?",
-        choices: [
-            {
-                name: "description",
-                value: "input"
-            }
-        ] //after use a .then to convert it to a json and make a new file
     },
     {
       type: "input",
-      name: "Github Username",
-      list: "Enter your Github Username",
-      choices: [
-          {
-            name: "Github Username", 
-            value: "text",
-          }
-      ] //after use a .then to convert it to a json and make a new file
+      name: "github",
+      message: "Enter your Github Username",
   },
   {
     type: "input",
-    name: "Installation instreuctions",
-    list: "",
-    choices: [
-        {
-            name: "description",
-            value: "input"
-        }
-    ] //after use a .then to convert it to a json and make a new file
+    name: "installation",
+    message: "How do you install your application?",
+     //after use a .then to convert it to a json and make a new file
+},
+{
+  type: "list",
+  name: "licence",
+  message: "what is the lisence of the project?",
+  choices: ["MIT", "Apache", "GNU", "Eclipse"] //after use a .then to convert it to a json and make a new file
 },
 {
   type: "input",
-  name: "description",
-  list: "What is the description of the project?",
-  choices: [
-      {
-          name: "description",
-          value: "input"
-      }
-  ] //after use a .then to convert it to a json and make a new file
-}
+  name: "email",
+  message: "What is your Email address?",
+  //after use a .then to convert it to a json and make a new file
+}];
+inquirer.prompt(questions)
 .then((answers) =>{
-  print (answers)
+  console.log(answers)})
   .catch((error) => {
     if (error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
@@ -72,15 +56,9 @@ const questions = () => {
     } else {
       // Something else went wrong
       console.log("Error")
-    }
-  },
-  );
-})
-]
-)
-};
+    }})
 
-// TODO: Create a function to write README file
+  // TODO: Create a function to write README file
 const writeFile = fileContent => {
   return new Promise ((resolve, reject) => {if (err){
     reject(err)
@@ -106,38 +84,14 @@ function writeToFile(questions, data) {
 
    });
 });
-}
-}
+}}
 }
 // TODO: Create a function to initialize app
 function generatePage() {
   module.exports = generatePage => {
     console.log(questions);
     
-    return `
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>README GENERATOR</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-
-  <body>
-  <header>
-  <div class = "container flex-row justify-space-between align-center py-3
-    <h1 class = "page-title text-primary bg-dark py-2 px-3">${writeToFile}</h1>
-    <nav class ="flex-row">
-    <a class = "flex-row cbbg-light py-2 px-3">
-    <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
-  </body>
-  </html>
-  `;
+    return ``;
 };
 }
 
