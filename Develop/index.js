@@ -2,12 +2,11 @@
 var inquirer = require('inquirer');
 const fs = require('fs')
 const generatePage = require('./utils/generateMarkdown')
-const { resolve } = require('path');
-const { doesNotMatch } = require('assert');
+
 var questions = [
   {
     type: "input",
-    name: "Title",
+    name: "title",
     message: "What is the name of the project?",
     validate: nameInput => {
       if (nameInput) {
@@ -46,6 +45,20 @@ var questions = [
   },
   {
     type: "input",
+    name: "images",
+    message: "Insert one Image into the project. Be sure to add them to the assets folder. To install an image, just write the name of the filename of the image.",
+    validate: nameInput => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("Please enter a image.")
+        return false;
+      }
+    },
+    
+  },
+  {
+    type: "input",
     name: "install",
     message: "How do you install your application?",
     validate: nameInput => {
@@ -56,7 +69,20 @@ var questions = [
         return false;
       }
     }
-    //after use a .then to convert it to a json and make a new file
+  },
+  {
+    type: "input",
+    name: "guidelines",
+    message: "What are the Contribution Guidlines for this project?",
+    validate: nameInput => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("A man needs a code.")
+        return false;
+      }
+    }
+    
   },
   {
     type: "list",
@@ -85,7 +111,7 @@ var questions = [
       if (nameInput) {
         return true;
       } else {
-        console.log("Please tell me how to use your app.")
+        console.log("Please tell me how to use your app. Is it like Floppy Bird?")
         return false;
       }
     }
@@ -98,7 +124,7 @@ var questions = [
       if (nameInput) {
         return true;
       } else {
-        console.log("Please tell me the names of your contributors.")
+        console.log("Please tell me the names of your contributors. Now.")
         return false;
       }
     }

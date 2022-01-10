@@ -51,6 +51,8 @@ function renderLicenseSection(license) {
     return `This project is licensed under the [${license} license](${renderLicenseLink(license)}).`
   };
 }
+
+var photo = document.getElementById("IMG")
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -63,21 +65,38 @@ function generateMarkdown(data) {
   * [Usage](#usage)
   * [License](#license)
   * [Contributing](#contributing)
+  * [Guidlines](#Contribution Guidlines)
   * [Tests](#tests)
   * [Questions](#questions)
   
   ## Installation 
+  
   ${data.install}
+
+  ${data.images}
+
   ## Usage 
+
   ${data.usage}
+
   ## License 
+
   ${renderLicenseSection(data.license)}
+
   ## Contributing 
+
   ${data.contributors}
+
+  ## Contribution Guidlines
+
+  ${data.guidelines}
+
   ## Tests
+
   ${data.test}
+
   ## Questions
-  ${data.email}
+
   If you have any questions about this projects, please contact me directly at ${data.email}. You can view more of my projects at https://github.com/${data.github}.
 `;
 }
