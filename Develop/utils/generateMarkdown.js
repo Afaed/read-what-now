@@ -46,7 +46,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license == "None") {
-    return ""
+    return "No license is required! But thanks for asking."
   } else {
     return `This project is licensed under the [${license} license](${renderLicenseLink(license)}).`
   };
