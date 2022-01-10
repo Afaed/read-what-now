@@ -52,7 +52,6 @@ function renderLicenseSection(license) {
   };
 }
 
-var photo = document.getElementById("IMG")
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}

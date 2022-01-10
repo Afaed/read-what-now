@@ -2,7 +2,6 @@
 var inquirer = require('inquirer');
 const fs = require('fs')
 const generatePage = require('./utils/generateMarkdown')
-var pictures = require(`./assets/images`)
 
 var questions = [
   {
