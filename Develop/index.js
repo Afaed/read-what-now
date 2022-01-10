@@ -46,20 +46,6 @@ var questions = [
   },
   {
     type: "input",
-    name: "images",
-    message: "Insert one Image into the project. Be sure to add them to the assets folder. To install an image, just write the name of the filename of the image.",
-    validate: nameInput => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log("Please enter a image.")
-        return false;
-      }
-    },
-    
-  },
-  {
-    type: "input",
     name: "install",
     message: "How do you install your application?",
     validate: nameInput => {
