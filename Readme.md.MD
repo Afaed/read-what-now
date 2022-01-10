@@ -16,7 +16,7 @@
   ## Installation 
 
   Just clone the repository and you got it! (Be sure to navigate to the develop file)
-  
+
   ## Usage 
 
   Just type node index.js in the console when you navigate to develop and let it rip.
@@ -41,6 +41,8 @@
   ## Challenges
 
   Suprisingly one of the biggest challenges was trying to type in the word "license" because I kept spelling it wrong. That being said, another issue I had was learning how to code the darn thing with node impromptu with very little practice before hand. Especially with mmodule exports I felt rather confused on if I needed to set it to the index file or not. However, I did manage to persevere thanks to my tutor who helped me improve in this area. Also I didn't know how to mkae images load into javascript-much less send the information from the assets folder into the Javascript file and all the assets it was just a mess.
+
+  ![developer image] (markdown.jpg)
 
   ## Solutions
 
